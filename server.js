@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-
 // crea la aplicacion express
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,9 +29,13 @@ app.get('/', (req, res) => {
     res.json({"message": "API Kernel funcionando - medical institution"});
 });
 
-require('./app/routes/demographics.routes.js')(app);
+require('./app/routes/allergy.routes.js')(app);
+require('./app/routes/demographic.routes.js')(app);
+require('./app/routes/immunization.routes.js')(app);
+require('./app/routes/medication.routes.js')(app);
+require('./app/routes/provider.routes.js')(app);
 
 // listen for requests
-app.listen(port.port, () => {
-    console.log("Server escuchando en el puerto 3000");
+app.listen(port, () => {
+    console.log("Server escuchando en el puerto " + port);
 });

@@ -1,17 +1,16 @@
-const Demographics = require('../models/demographics.model.js');
+const Demographic = require('../models/demographic.model.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.FirstName && !req.body.LastName) {
+    if(!req.body.Name) {
         return res.status(400).send({
-            message: "El contenido no puede ser vacio"
+            message: "El nombre de la persona no puede ser vacio"
         });
     }
-
-    const demographics = new Demographics({
-        FirstName: req.body.FirstName,
-        LastName: req.body.LastName,
+    
+    const demographic = new Demographic({
+        Name: req.body.Name,
         Gender: req.body.Gender,
         MartialStatus: req.body.MartialStatus,
         ReligiousAffiliation: req.body.ReligiousAffiliation,
@@ -19,10 +18,16 @@ exports.create = (req, res) => {
         LanguageSpoken: req.body.LanguageSpoken,
         Address: req.body.Address,
         Telephone: req.body.Telephone,
-        Birthdate: req.body.Birthdate
+        Birthdate: req.body.Birthdate,
+        Guardian: req.body.Guardian,
+        Allergies: req.body.Allergies,
+        Immunizations: req.body.Immunizations,
+        Medications: req.body.Medications,
+        PlansCares: req.body.PlanCare,
+        Encounters: req.body.Encounters
     });
 
-    demographics.save()
+    demographic.save()
     .then(data => {
         res.send(data);
     }).catch(err => {
@@ -34,12 +39,12 @@ exports.create = (req, res) => {
 
 // Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
-    Demographics.find()
-    .then(demographics => {
-        res.send(demographics);
+    Demographic.find()
+    .then(demographic => {
+        res.send(demographic);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Ocurrio un error obteniendo todas las personas"
+            message: err.message || "Ocurrio un error obteniendo las personas"
         });
     });
 };

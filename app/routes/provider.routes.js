@@ -1,11 +1,11 @@
 module.exports = (app) => {
-    const demographics = require('../controllers/demographics.controller.js');
+    const provider = require('../controllers/provider.controller.js');
 
     // Create a new demographics
-    app.post('/demographics', demographics.create);
+    app.post('/provider', provider.create);
 
     // Retrieve all demographics
-    app.get('/demographics', demographics.findAll);/* 
+    app.get('/provider', provider.findAll);/* 
 
     app.get('/demographics/:noteId', demographics.findOne);
 
