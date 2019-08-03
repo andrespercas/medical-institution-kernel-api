@@ -27,11 +27,17 @@ const DemographicSchema = mongoose.Schema({
     }],
     Immunizations: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Immunization'
+        ref: 'Immunization',
+        Date: Date
     }],
     Medications: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Medication'
+        ref: 'Medication',
+        Date: Date,
+        NamePrescriber: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Provider'
+        }
     }],
     PlansCares: [
         {

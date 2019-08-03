@@ -1,15 +1,13 @@
 module.exports = (app) => {
-    const provider = require('../controllers/provider.controller.js');
+    const Provider = require('../controllers/provider.controller.js');
 
-    // Create a new demographics
-    app.post('/provider', provider.create);
+    app.post('/provider', Provider.create);
 
-    // Retrieve all demographics
-    app.get('/provider', provider.findAll);/* 
+    app.get('/provider', Provider.findAll);
 
-    app.get('/demographics/:noteId', demographics.findOne);
+    app.get('/provider/:idProvider', Provider.findOne);
 
-    app.put('/demographics/:noteId', demographics.update);
+    app.put('/provider/:idProvider', Provider.update);
 
-    app.delete('/demographics/:noteId', demographics.delete); */
+    app.delete('/provider/:idProvider', Provider.delete);
 }

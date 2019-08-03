@@ -1,15 +1,13 @@
 module.exports = (app) => {
-    const immunization = require('../controllers/immunization.controller.js');
+    const Immunization = require('../controllers/immunization.controller.js');
 
-    // Create a new demographics
-    app.post('/immunization', immunization.create);
+    app.post('/immunization', Immunization.create);
 
-    // Retrieve all demographics
-    app.get('/immunization', immunization.findAll);/* 
+    app.get('/immunization', Immunization.findAll);
 
-    app.get('/demographics/:noteId', demographics.findOne);
+    app.get('/immunization/:idImmunization', Immunization.findOne);
 
-    app.put('/demographics/:noteId', demographics.update);
+    app.put('/immunization/:idImmunization', Immunization.update);
 
-    app.delete('/demographics/:noteId', demographics.delete); */
+    app.delete('/immunization/:idImmunization', Immunization.delete);
 }

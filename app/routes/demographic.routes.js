@@ -1,15 +1,14 @@
 module.exports = (app) => {
-    const demographic = require('../controllers/demographic.controller.js');
+    const Demographic = require('../controllers/demographic.controller.js');
 
-    // Create a new demographics
-    app.post('/demographic', demographic.create);
+    
+    app.post('/demographic', Demographic.create);
 
-    // Retrieve all demographics
-    app.get('/demographic', demographic.findAll);/* 
+    app.get('/demographic', Demographic.findAll);
 
-    app.get('/demographics/:noteId', demographics.findOne);
+    app.get('/demographic/:idDemographic', Demographic.findOne);
 
-    app.put('/demographics/:noteId', demographics.update);
+    app.put('/demographic/:idDemographic', Demographic.update);
 
-    app.delete('/demographics/:noteId', demographics.delete); */
+    app.delete('/demographic/:idDemographic', Demographic.delete);
 }

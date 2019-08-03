@@ -1,15 +1,13 @@
 module.exports = (app) => {
-    const allergy = require('../controllers/allergy.controller.js');
+    const Allergy = require('../controllers/allergy.controller.js');
 
-    // Create a new demographics
-    app.post('/allergy', allergy.create);
+    app.post('/allergy', Allergy.create);
 
-    // Retrieve all demographics
-    app.get('/allergy', allergy.findAll);/* 
+    app.get('/allergy', Allergy.findAll);
 
-    app.get('/demographics/:noteId', demographics.findOne);
+    app.get('/allergy/:idAllergy', Allergy.findOne);
 
-    app.put('/demographics/:noteId', demographics.update);
+    app.put('/allergy/:idAllergy', Allergy.update);
 
-    app.delete('/demographics/:noteId', demographics.delete); */
+    app.delete('/allergy/:idAllergy', Allergy.delete);
 }

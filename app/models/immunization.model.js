@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const ImmunizationSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    Date: Date,
     Name: String,
     Type: String,
     DoseQuantity: String,

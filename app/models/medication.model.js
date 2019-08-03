@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 
 const MedicationSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    Date: Date,
     Type: String,
     Name: String,
     Instructions: String,
     DoseQuantity: String,
-    RateQuantity: String,
-    NamePrescriber : String
+    RateQuantity: String
 }, {
     timestamps: true
 });
