@@ -1,17 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const apiConfig = require("./config/api.config");
+const dbConfig = require('./config/database.config');
 
 // crea la aplicacion express
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || apiConfig.port;
 
 // se utiliza para parsear el contenido de las peticiones. parsea el contenido - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 // parsea el contenido application/json
 app.use(bodyParser.json())
 
-const dbConfig = require('./config/database.config.js');
-const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
@@ -19,23 +20,23 @@ mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
 }).then(() => {
-    console.log("Conexion exitosa a la base de datos");    
+    console.log("Successfully connected to the database");    
 }).catch(err => {
-    console.log('No se pudo conectar a la base de datos: ', err);
+    console.log('Could not connect to the database. Exiting now...: ', err);
     process.exit();
 });
 
 app.get('/', (req, res) => {
-    res.json({"message": "API Kernel funcionando - medical institution"});
+    res.json({"message": "API Kernel ready"});
 });
 
-require('./app/routes/allergy.routes.js')(app);
-require('./app/routes/demographic.routes.js')(app);
-require('./app/routes/immunization.routes.js')(app);
-require('./app/routes/medication.routes.js')(app);
-require('./app/routes/provider.routes.js')(app);
+require('./app/routes/allergy.routes')(app);
+require('./app/routes/demographic.routes')(app);
+require('./app/routes/immunization.routes')(app);
+require('./app/routes/medication.routes')(app);
+require('./app/routes/provider.routes')(app);
 
 // listen for requests
 app.listen(port, () => {
-    console.log("Server escuchando en el puerto " + port);
+    console.log("Server is listening on port " + port);
 });

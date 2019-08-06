@@ -1,5 +1,6 @@
-const Medication = require('../models/medication.model.js');
+const Medication = require('../models/medication.model');
 const mongoose = require('mongoose');
+const attributes = ["Name", "Instructions", "DoseQuantity", "RateQuantity"]
 
 exports.create = (req, res) => {
     if(!req.body.Name){
@@ -27,7 +28,7 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.getAll = (req, res) => {
     Medication.find()
     .then(medications => {
         res.send(medications);
@@ -38,7 +39,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findOne = (req, res) => {
+exports.getOneById = (req, res) => {
     Medication.findById(req.params.idMedication)
     .then(medication => {
         if(!medication) {
@@ -66,13 +67,10 @@ exports.update = (req, res) => {
         });
     }
 
-    Medication.findByIdAndUpdate(req.params.idMedication, {
-        Type: req.body.Type,
-        Name: req.body.Name,
-        Instructions: req.body.Instructions,
-        DoseQuantity: req.body.DoseQuantity,
-        RateQuantity: req.body.RateQuantity
-    }, {new: true})
+    var updatePackage = {}
+    var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
+
+    Medication.findByIdAndUpdate(req.params.idMedication, updatePackage, {new: true})
     .then(medication => {
         if(!medication) {
             return res.status(404).send({

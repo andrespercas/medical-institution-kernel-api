@@ -1,5 +1,6 @@
-const Immunization = require('../models/immunization.model.js');
+const Immunization = require('../models/immunization.model');
 const mongoose = require('mongoose');
+const attributes = ["Name", "Type", "DoseQuantity", "Instructions"]
 
 exports.create = (req, res) => {
     if(!req.body.Name){
@@ -26,7 +27,7 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.getAll = (req, res) => {
     Immunization.find()
     .then(immunizations => {
         res.send(immunizations);
@@ -37,7 +38,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findOne = (req, res) => {
+exports.getOneById = (req, res) => {
     Immunization.findById(req.params.idImmunization)
     .then(immunization => {
         if(!immunization) {
@@ -65,12 +66,10 @@ exports.update = (req, res) => {
         });
     }
 
-    Immunization.findByIdAndUpdate(req.params.idImmunization, {
-        Name: req.body.Name,
-        Type: req.body.Type,
-        DoseQuantity: req.body.DoseQuantity,
-        Instructions: req.body.Instructions,
-    }, {new: true})
+    var updatePackage = {}
+    var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
+
+    Immunization.findByIdAndUpdate(req.params.idImmunization, updatePackage, {new: true})
     .then(immunization => {
         if(!immunization) {
             return res.status(404).send({

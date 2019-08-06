@@ -1,5 +1,6 @@
 const Allergy = require('../models/allergy.model.js');
 const mongoose = require('mongoose');
+const attributes = ["Name", "Reaction", "Severity"]
 
 exports.create = (req, res) => {
     if(!req.body.Name){
@@ -25,7 +26,7 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.getAll = (req, res) => {
     Allergy.find()
     .then(allergies => {
         res.send(allergies);
@@ -36,8 +37,8 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findOne = (req, res) => {
-    Allergy.findById(req.params.idAllergy)
+exports.getOneById = (req, res) => {
+    Allergy.findById({_id: req.params.idAllergy})
     .then(allergy => {
         if(!allergy) {
             return res.status(404).send({
@@ -64,11 +65,10 @@ exports.update = (req, res) => {
         });
     }
 
-    Allergy.findByIdAndUpdate(req.params.idAllergy, {
-        Name: req.body.Name, 
-        Reaction: req.body.Reaction,
-        Severity: req.body.Severity
-    }, {new: true})
+    var updatePackage = {}
+    var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
+
+    Allergy.findOneAndUpdate(req.params.idAllergy, updatePackage, {new: true})
     .then(allergy => {
         if(!allergy) {
             return res.status(404).send({

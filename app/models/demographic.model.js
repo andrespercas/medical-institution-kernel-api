@@ -16,28 +16,39 @@ const DemographicSchema = mongoose.Schema({
     Birthdate: Date,
     Guardian: {
         Role: String,
-        FirstName: String,
-        LastName: String,
+        Name: {
+            FirstName: String,
+            LastName: String,
+        },
         Address: String,
         Telephone: String,
     },
     Allergies: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Allergy'
+        _allergy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Allergy',
+            unique: true
+        },
+        Date: Date
     }],
     Immunizations: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Immunization',
+        _immunization: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Immunization'
+        },
         Date: Date
     }],
     Medications: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Medication',
+        _medication: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Medication'
+        },
         Date: Date,
-        NamePrescriber: {
+        _namePrescriber: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Provider'
-        }
+        },
+        Reminders: [Date]
     }],
     PlansCares: [
         {
@@ -46,10 +57,19 @@ const DemographicSchema = mongoose.Schema({
             Instructions: String,
         }
     ],
+    Providers: [
+        {
+            _provider: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Provider'
+            },
+            Principal: Boolean
+        }
+    ],
     Encounters: [
         {
             Encounter: String,
-            Provider: {
+            _provider: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Provider'
             },

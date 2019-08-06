@@ -1,5 +1,6 @@
-const Provider = require('../models/provider.model.js');
+const Provider = require('../models/provider.model');
 const mongoose = require('mongoose');
+const attributes = ["Name", "Address", "Telephone"]
 
 exports.create = (req, res) => {
     if((!req.body.Name) && (req.body.Name !== " ")){
@@ -25,7 +26,7 @@ exports.create = (req, res) => {
     });
 };
 
-exports.findAll = (req, res) => {
+exports.getAll = (req, res) => {
     Provider.find()
     .then(providers => {
         res.send(providers);
@@ -36,7 +37,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.findOne = (req, res) => {
+exports.getOneById = (req, res) => {
     Provider.findById(req.params.idProvider)
     .then(provider => {
         if(!provider) {
@@ -64,11 +65,10 @@ exports.update = (req, res) => {
         });
     }
 
-    Provider.findByIdAndUpdate(req.params.idProvider, {
-        Name: req.body.Name, 
-        Address: req.body.Address,
-        Telephone: req.body.Telephone
-    }, {new: true})
+    var updatePackage = {}
+    var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
+
+    Provider.findByIdAndUpdate(req.params.idProvider, updatePackage, {new: true})
     .then(provider => {
         if(!provider) {
             return res.status(404).send({
