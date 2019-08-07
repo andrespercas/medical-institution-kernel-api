@@ -26,8 +26,7 @@ const DemographicSchema = mongoose.Schema({
     Allergies: [{
         _allergy: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Allergy',
-            unique: true
+            ref: 'Allergy'
         },
         Date: Date
     }],
