@@ -91,7 +91,7 @@ exports.delete = (req, res) => {
                 message: "Immunization not found with id " + req.params.idImmunization
             });
         }
-        res.send({message: "NotImmunizatione deleted successfully!"});
+        res.send({message: "Immunization deleted successfully!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
