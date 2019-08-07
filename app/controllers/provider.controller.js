@@ -83,7 +83,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Provider.findByIdAndRemove(req.params.idAllergy)
+    Provider.findByIdAndRemove(req.params.idProvider)
     .then(provider => {
         if(!provider) {
             return res.status(404).send({
