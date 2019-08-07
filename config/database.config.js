@@ -1,4 +1,4 @@
 module.exports = {
-    url: 'mongodb://localhost:27017/medical-institution'
-    //url: 'mongodb://pei:pei2019@ds141623.mlab.com:41623/heroku_7850m85j'
+    url: 'mongodb://heroku_3npxxw23:30146ptu5osefngv9uimmp71gj@ds163796.mlab.com:63796/heroku_3npxxw23'
+
 }
