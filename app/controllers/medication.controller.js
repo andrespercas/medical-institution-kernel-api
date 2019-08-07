@@ -1,6 +1,6 @@
 const Medication = require('../models/medication.model');
 const mongoose = require('mongoose');
-const attributes = ["Name", "Instructions", "DoseQuantity", "RateQuantity"]
+const attributes = ["Name", "Type", "Instructions", "DoseQuantity", "RateQuantity"]
 
 exports.create = (req, res) => {
     if(!req.body.Name){
