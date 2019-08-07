@@ -103,7 +103,7 @@ exports.getOneByName = (req, res) => {
 };
 
 exports.getAttribute = (req, res) => {
-    Demographic.find({_id: req.params.idDemographic}, req.params.key)
+    Demographic.find({_id: req.params.idDemographic, Immunizations: { $elemMatch: {  Date : { $gte: new Date(2018-10-10)} } } }, req.params.key)
     .populate(keysAttr[req.params.key])
     .exec(function (err, attr) {
         if(!attr) {
@@ -128,36 +128,9 @@ exports.getAttribute = (req, res) => {
             });
         }
     });
-    /*.then(attr => {
-        if(!attr) {
-            return res.status(404).send({
-                message: "Attribute not found or empty with name " + req.params.key
-            });            
-        } else if(attr.length == 0) {
-            return res.status(404).send({
-                message: "Demographic not found with id " + req.params.idDemographic
-            });       
-        }
-        res.send(attr[0]);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Attribute not found with name " + req.params.key
-            });                
-        }
-        return res.status(500).send({
-            message: "Error retrieving demographic wwith name " + req.params.key
-        });
-    }); */
 };
 
 exports.update = (req, res) => {
-    if(!req.body.Name) {
-        return res.status(400).send({
-            message: "Demographic name can not be empty"
-        });
-    }
-
     var updatePackage = {}
     var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
 

@@ -59,12 +59,6 @@ exports.getOneById = (req, res) => {
 };
 
 exports.update = (req, res) => {
-    if(!req.body.Name) {
-        return res.status(400).send({
-            message: "Allergy name can not be empty"
-        });
-    }
-
     var updatePackage = {}
     var z = attributes.filter(function(k){return req.body[k]}).map(function(e){updatePackage[e]=req.body[e]})
 
