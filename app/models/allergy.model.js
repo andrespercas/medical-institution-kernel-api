@@ -9,4 +9,4 @@ const AllergySchema = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Allergy', AllergySchema, 'Allergies');
+module.exports = mongoose.model('Allergy', AllergySchema);
