@@ -1,0 +1,773 @@
+{
+	"info": {
+		"_postman_id": "c42f7b30-965b-4e73-8c1d-4f9b324b83f2",
+		"name": "medical-institution-kernel-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Demographic",
+			"item": [
+				{
+					"name": "GetDemographics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDemographicById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/5d4b603707748200162681e9",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								"5d4b603707748200162681e9"
+							]
+						},
+						"description": "\n"
+					},
+					"response": []
+				},
+				{
+					"name": "GetDemographicByFullName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/Ellen/Ross",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								"Ellen",
+								"Ross"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDemographicAttributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/attributes/5d4b603707748200162681e9/Immunizations",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								"attributes",
+								"5d4b603707748200162681e9",
+								"Immunizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostDemopraphic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": {\n        \"FirstName\": \"AAAA\",\n        \"LastName\": \"Perez\"\n    },\n    \"Guardian\": {\n        \"Role\": \"Sister\",\n        \"Name\": {\n            \"FirstName\": \"Victoria\",\n            \"LastName\": \"Perez\"\n\t\t},\n        \"Address\": \"Gonzalo Ramirez 1329\",\n        \"Telephone\": \"094-27-77-56\"\n    },\n    \"Allergies\": [\n        {\n            \"_allergy\": \"5d4b67abd55b6f00160acaf7\",\n            \"Date\": \"2019-08-03T00:00:00.000Z\"\n        },\n        {\n            \"_allergy\": \"5d4b67bfd55b6f00160acaf8\",\n            \"Date\": \"2019-08-02T00:00:00.000Z\"\n        }\n    ],\n    \"Immunizations\": [\n        {\n            \"_immunization\": \"5d4b5c4ea9880800167a71e8\",\n            \"Date\": \"2001-05-01\"\n        },\n        {\n            \"_immunization\": \"5d4b5c72a9880800167a71e9\",\n            \"Date\": \"2000-04-01\"\n        }\n    ],\n    \"Medications\": [\n        {\n            \"_medication\": \"5d4b5ab9dd8ea6001611a662\",\n            \"Date\": \"2005-03-01\",\n            \"_namePrescriber\": \"5d4b59e3dd8ea6001611a661\",\n            \"Reminders\": []\n        },\n        {\n            \"_medication\": \"5d4b5b2d9e6e950016042fb4\",\n            \"Date\": \"2003-12-01\",\n            \"_namePrescriber\": \"5d4b59e3dd8ea6001611a661\",\n            \"Reminders\": [\"2013-08-07T23:13:49.707\"]\n        }\n    ],\n    \"Gender\": \"Male\",\n    \"MartialStatus\": \"Single\",\n    \"ReligiousAffiliation\": \"None\",\n    \"Ethnicity\": \"None\",\n    \"LanguageSpoken\": \"Spanish\",\n    \"Address\": \"Gonzalo Ramirez 1329\",\n    \"Telephone\": \"094-27-77-56\",\n    \"Birthdate\": \"1995-12-27\",\n    \"PlansCares\": [\n    \t{\n    \t\t\"Activity\": \"Office consultation\",\n    \t\t\"Date\": \"2007-05-28\",\n    \t\t\"Instructions\": \"Consultation with Dr. George Potomac for Ast\"\n    \t},\n    \t{\n    \t\t\"Activity\": \"Chest X-Ray\",\n    \t\t\"Date\": \"2007-06-01\",\n    \t\t\"Instructions\": \"\"\n    \t},\n    \t{\n    \t\t\"Activity\": \"Sputum Culture\",\n    \t\t\"Date\": \"2007-05-28\",\n    \t\t\"Instructions\": \"\"\n    \t}\n    ],\n    \"Encounters\": [\n    \t{\n\t    \t\"Encounter\": \"ED Visit for Ankle Sprain\",\n\t    \t\"_provider\": \"5d4b59e3dd8ea6001611a661\",\n\t    \t\"Location\":\"Community Hospital\",\n\t    \t\"Date\": \"2005-03-28\"\n    \t}\n    ],\n    \"Providers\": [\n    \t{\n\t    \t\"_provider\": \"5d4b59e3dd8ea6001611a661\",\n\t    \t\"Principal\":\"true\"\n    \t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutDemographic",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": {\n        \"FirstName\": \"aaaaa\",\n        \"LastName\": \"Perez\"\n    },\n    \"Guardian\": {\n        \"Role\": \"Sister\",\n        \"Name\": {\n            \"FirstName\": \"Victoria\",\n            \"LastName\": \"Perez\"\n\t\t},\n        \"Address\": \"Gonzalo Ramirez 1329\",\n        \"Telephone\": \"094-27-77-56\"\n    },\n    \"Allergies\": [\n        {\n            \"_allergy\": \"5d4b58efdd8ea6001611a65c\",\n            \"Date\": \"2019-08-03T00:00:00.000Z\"\n        },\n        {\n            \"_allergy\": \"5d4b5915dd8ea6001611a65d\",\n            \"Date\": \"2019-08-02T00:00:00.000Z\"\n        }\n    ],\n    \"Immunizations\": [\n        {\n            \"_immunization\": \"5d4b5c4ea9880800167a71e8\",\n            \"Date\": \"2001-05-01\"\n        },\n        {\n            \"_immunization\": \"5d4b5c72a9880800167a71e9\",\n            \"Date\": \"2000-04-01\"\n        }\n    ],\n    \"Medications\": [\n        {\n            \"_medication\": \"5d4b5ab9dd8ea6001611a662\",\n            \"Date\": \"2005-03-01\",\n            \"_namePrescriber\": \"5d4b59e3dd8ea6001611a661\",\n            \"Reminders\": []\n        },\n        {\n            \"_medication\": \"5d4b5b2d9e6e950016042fb4\",\n            \"Date\": \"2003-12-01\",\n            \"_namePrescriber\": \"5d4b59e3dd8ea6001611a661\",\n            \"Reminders\": [\"2013-08-07T23:13:49.707\"]\n        }\n    ],\n    \"Gender\": \"Male\",\n    \"MartialStatus\": \"Single\",\n    \"ReligiousAffiliation\": \"None\",\n    \"Ethnicity\": \"None\",\n    \"LanguageSpoken\": \"Spanish\",\n    \"Address\": \"Gonzalo Ramirez 1329\",\n    \"Telephone\": \"094-27-77-56\",\n    \"Birthdate\": \"1995-12-27\",\n    \"PlansCares\": [\n    \t{\n    \t\t\"Activity\": \"Office consultation\",\n    \t\t\"Date\": \"2007-05-28\",\n    \t\t\"Instructions\": \"Consultation with Dr. George Potomac for Ast\"\n    \t},\n    \t{\n    \t\t\"Activity\": \"Chest X-Ray\",\n    \t\t\"Date\": \"2007-06-01\",\n    \t\t\"Instructions\": \"\"\n    \t},\n    \t{\n    \t\t\"Activity\": \"Sputum Culture\",\n    \t\t\"Date\": \"2007-05-28\",\n    \t\t\"Instructions\": \"\"\n    \t}\n    ],\n    \"Encounters\": [\n    \t{\n\t    \t\"Encounter\": \"ED Visit for Ankle Sprain\",\n\t    \t\"_provider\": \"5d4b59e3dd8ea6001611a661\",\n\t    \t\"Location\":\"Community Hospital\",\n\t    \t\"Date\": \"2005-03-28\"\n    \t}\n    ],\n    \"Providers\": [\n    \t{\n\t    \t\"_provider\": \"5d4b59e3dd8ea6001611a661\",\n\t    \t\"Principal\":\"true\"\n    \t}\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/5d4b619707748200162681f3",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								"5d4b619707748200162681f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDemographic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/demographic/5d4b619707748200162681f3",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"demographic",
+								"5d4b619707748200162681f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Allergy",
+			"item": [
+				{
+					"name": "GetAllergies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/allergy",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"allergy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllergyById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/allergy/5d48da3f8b4e7713b095101f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"allergy",
+								"5d48da3f8b4e7713b095101f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostAllergy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Bee Stings\",\n    \"Reaction\": \"Anaphylactic Shock\",\n    \"Severity\": \"Severe\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/allergy",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"allergy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutAllergy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Bee Stings\",\n    \"Reaction\": \"Anaphylactic Shock\",\n    \"Severity\": \"Severe\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/allergy/5d4b58efdd8ea6001611a65c",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"allergy",
+								"5d4b58efdd8ea6001611a65c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAllergy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/allergy/5d4b5962dd8ea6001611a65f",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"allergy",
+								"5d4b5962dd8ea6001611a65f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provider",
+			"item": [
+				{
+					"name": "GetProviders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/provider",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"provider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProviderById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/provider/5d4b59d1dd8ea6001611a660",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"provider",
+								"5d4b59d1dd8ea6001611a660"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProvider",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"Ashby Medical Center\",\n\t\"Address\": \"1002 Healthcare Dr, Portland, OR 97266\",\n\t\"Telephone\": \"415-555-1200\"\n}\n"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/provider",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"provider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutProvider",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Name\": \"A\",\n\t\"Address\": \"1002 Healthcare Dr, Portland, OR 97266\",\n\t\"Telephone\": \"415-555-1200\"\n}\n"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/provider/5d4b59e3dd8ea6001611a661",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"provider",
+								"5d4b59e3dd8ea6001611a661"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProvider",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/provider/5d4b59d1dd8ea6001611a660",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"provider",
+								"5d4b59d1dd8ea6001611a660"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medication",
+			"item": [
+				{
+					"name": "GetMedications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/medication",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMedicationById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/medication/5d4b5b339e6e950016042fb5",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medication",
+								"5d4b5b339e6e950016042fb5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostMedication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Type\": \"Tablet\",\n\t\"Name\": \"Indomethacin\",\n\t\"Instructions\": \"50mg bid with food\",\n\t\"DoseQuantity\": \"50 / mg\",\n\t\"RateQuantity\": \"2 / day\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/medication",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutMedication",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Type\": \"Amoxidal\",\n    \"Name\": \"Indomethacin\",\n    \"Instructions\": \"50mg bid with food\",\n    \"DoseQuantity\": \"50 / mg\",\n    \"RateQuantity\": \"2 / day\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/medication/5d4b5b339e6e950016042fb5",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medication",
+								"5d4b5b339e6e950016042fb5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMedication",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/medication/5d4b5b339e6e950016042fb5",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"medication",
+								"5d4b5b339e6e950016042fb5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Immunization",
+			"item": [
+				{
+					"name": "GetImmunizations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/immunization",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"immunization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetImmunizationById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/immunization/5d4b5c77a9880800167a71ea",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"immunization",
+								"5d4b5c77a9880800167a71ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostImmunization",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Tetanus and diphtheria toxoids, IM\",\n    \"Type\": \"Intramuscular injection\",\n    \"DoseQuantity\": \"50 / mcg\",\n    \"Instructions\": \"Mild pain or soreness in the local\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/immunization",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"immunization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutImmunization",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"aaaaa\",\n    \"Type\": \"Intramuscular injection\",\n    \"DoseQuantity\": \"50 / mcg\",\n    \"Instructions\": \"Mild pain or soreness in the local\"\n}"
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/immunization/5d4b5c77a9880800167a71ea",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"immunization",
+								"5d4b5c77a9880800167a71ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImmunization",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://blooming-refuge-74646.herokuapp.com/immunization/5d4b5c77a9880800167a71ea",
+							"protocol": "https",
+							"host": [
+								"blooming-refuge-74646",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"immunization",
+								"5d4b5c77a9880800167a71ea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
